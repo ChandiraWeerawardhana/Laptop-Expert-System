@@ -225,3 +225,396 @@ CLIPS> (defrule Menu
           "1) ASUS TUF DASH F15 FX517ZC I5 12TH GEN RTX 3050" crlf
 	  "2) MSI CYBORG 15 A12VE I5 12TH GEN RTX 4050 6GB" crlf
           "3) ASUS VIVOBOOK PRO N7400PC 14X OLED I7 - RTX 3050" crlf crlf))
+:;Rule Above Budget of Rs.400,000 
+:;-----------R22---------------------
+(defrule Above_400000_0 
+(iffoundChoice 3)
+?retractCh3 <- (iffoundChoice 3)
+(not (ifOSchoice2 ?))
+ =>  (retract ?retractCh3)
+(printout t crlf crlf
+"Select an Operating System " crlf crlf
+"1) Windows" crlf crlf
+"2) MacOS" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifOSchoice2 (read))))
+:;--------------R23--------------------
+(defrule Above_400000_1
+ (ifOSchoice2 2)
+ ?retractChy <- (ifOSchoice2 2)
+(not (ifPerformanceChoice3 ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Select The Performance Level" crlf crlf
+"1) High" crlf crlf
+"2) Ultra-High (Premium)" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifPerformanceChoice3 (read))))
+:;--------------R24--------------------
+(defrule Above_400000_2
+ (ifPerformanceChoice3 2)
+ ?retractChy <- (ifPerformanceChoice3 2)
+ (not (ifAffordChoice ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Can you afford more than Rs.600,000 ?" crlf crlf
+"1) YES" crlf crlf
+"2) NO" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifAffordChoice (read))))
+:;--------------R25--------------------
+(defrule Above_400000_3
+ (ifAffordChoice 2)
+ ?retractChy <- (ifAffordChoice 2)
+ =>
+ (retract ?retractChy)
+(printout t crlf crlf crlf "Laptops with premium performance are not available under Rs.600,000."crlf crlf ))
+:;--------------R26--------------------
+(defrule Above_400000_4
+ (ifAffordChoice 1)
+ ?retractChy <- (ifAffordChoice 1)
+ (not (ifPurposeChoice3 ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"What is your purpose (or area of study)?" crlf crlf
+"1) Programming (IT)" crlf crlf
+"2) Design & Palnning + Engineering" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifPurposeChoice3 (read))))
+:;--------------R27--------------------
+(defrule Above_400000_5
+ (ifPurposeChoice3 1)
+ ?retractChy <- (ifPurposeChoice3 1)
+ (not (ifSSDChoice ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Select SSD storage size " crlf crlf
+"1) 512 GB" crlf crlf
+"2) 1 TB" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifSSDChoice (read))))
+:;--------------R28--------------------
+(defrule Above_400000_6
+ (ifSSDChoice 1)
+ ?retractChy <- (ifSSDChoice 1)
+ =>
+ (retract ?retractChy)
+(printout t crlf "Two Laptops available:" crlf
+          "1) Macbook Pro M2 Pro Chip 14 inch 16GB / 512GB (2023)" crlf
+	  "2) Macbook Pro M3 Pro Chip 14 inch 18GB / 512GB (2023)" crlf crlf))
+:;--------------R29--------------------
+(defrule Above_400000_7
+ (ifSSDChoice 2)
+ ?retractChy <- (ifSSDChoice 2)
+ =>
+ (retract ?retractChy)
+(printout t crlf "Three Laptops available:" crlf
+          "1) Macbook Pro M3 Chip 14 inch 8GB / 1TB (2023)" crlf
+	  "2) Macbook Pro M3 Pro Chip 14 inch 18GB / 1TB (2023)" crlf
+	  "3) Macbook Pro M2 Pro Chip 16 inch 16GB / 1TB (2023)" crlf crlf))
+:;--------------R30--------------------
+(defrule Above_400000_8
+ (ifPurposeChoice3 2)
+ ?retractChy <- (ifPurposeChoice3 2)
+ (not (ifRAMChoice ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Select RAM type" crlf crlf
+"1) 16 GB" crlf crlf
+"2) 32 GB" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifRAMChoice (read))))
+:;--------------R31--------------------
+(defrule Above_400000_9
+ (ifRAMChoice 1)
+ ?retractChy <- (ifRAMChoice 1)
+ =>
+ (retract ?retractChy)
+(printout t crlf "One Laptop available:" crlf
+          "1) Macbook Pro M1 Pro Chip 16 inch 16GB / 1TB (2021)" crlf crlf))
+:;--------------R32--------------------
+(defrule Above_400000_10
+ (ifRAMChoice 2)
+ ?retractChy <- (ifRAMChoice 2)
+ =>
+ (retract ?retractChy)
+(printout t crlf "One Laptop available:" crlf
+          "1) Macbook Pro M1 Max Chip 16 inch 32GB / 1TB (2021)" crlf crlf))
+:;--------------R33--------------------
+(defrule Above_400000_11
+ (ifPerformanceChoice3 1)
+ ?retractChy <- (ifPerformanceChoice3 1)
+ (not (ifPurposeChoice4 ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"What is your purpose (or area of study)?" crlf crlf
+"1) General Purpose" crlf crlf
+"2) Programming (IT)" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifPurposeChoice4 (read))))
+:;--------------R34--------------------
+(defrule Above_400000_12
+ (ifPurposeChoice4 1)
+ ?retractChy <- (ifPurposeChoice4 1)
+ =>
+ (retract ?retractChy)
+(printout t crlf "Two Laptops available:" crlf
+          "1) MacBook Air M2 Chip 15 inch 8GB / 256GB (2023)" crlf
+	  "2) Macbook Pro M2 Chip 13 inch 8GB / 256GB" crlf crlf))
+:;--------------R35--------------------
+(defrule Above_400000_13
+ (ifPurposeChoice4 2)
+ ?retractChy <- (ifPurposeChoice4 2)
+ (not (ifSSDChoice1 ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Select SSD storage size" crlf crlf
+"1) 256 GB" crlf crlf
+"2) 512 GB" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifSSDChoice1 (read))))
+:;--------------R36--------------------
+(defrule Above_400000_14
+ (ifSSDChoice1 1)
+ ?retractChy <- (ifSSDChoice1 1)
+ =>
+ (retract ?retractChy)
+(printout t crlf "One Laptop available:" crlf
+          "1) Macbook Pro M2 Chip 13 inch 8GB / 256GB" crlf crlf))
+:;--------------R37--------------------
+(defrule Above_400000_15
+ (ifSSDChoice1 2)
+ ?retractChy <- (ifSSDChoice1 2)
+ =>
+ (retract ?retractChy)
+(printout t crlf "Two Laptops available:" crlf
+          "1) MacBook Air M2 Chip 15 inch 8GB / 512GB (2023))" crlf
+	  "2) Macbook Pro M3 Chip 14 inch 8GB / 512GB (2023)" crlf crlf))
+:;--------------R38--------------------
+(defrule Above_400000_16
+ (ifOSchoice2 1)
+ ?retractChy <- (ifOSchoice2 1)
+(not (ifPerformanceChoice4 ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Select The Performance Level" crlf crlf
+"1) High" crlf crlf
+"2) Ultra-High (Premium)" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifPerformanceChoice4 (read))))
+:;--------------R39--------------------
+(defrule Above_400000_17
+ (ifPerformanceChoice4 1)
+ ?retractChy <- (ifPerformanceChoice4 1)
+ (not (ifPurposeChoice5 ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"What is your purpose (or area of study)?" crlf crlf
+"1) Programming (IT)" crlf crlf
+"2) Designing & Planning + Engineering" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifPurposeChoice5 (read))))
+:;--------------R40--------------------
+(defrule Above_400000_18
+ (ifPurposeChoice5 1)
+ ?retractChy <- (ifPurposeChoice5 1)
+ (not (ifGamingChoice ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Do you prefer Gaming Laptops?" crlf crlf
+"1) YES" crlf crlf
+"2) NO" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifGamingChoice (read))))
+:;--------------R41--------------------
+(defrule Above_400000_19
+ (ifGamingChoice 1)
+ ?retractChy <- (ifGamingChoice 1)
+ =>
+ (retract ?retractChy)
+(printout t crlf "Three Laptops available:" crlf
+          "1) LENOVO LOQ 15IRH8 I7 13TH GEN + RTX 4060" crlf
+	  "2) ASUS TUF DASH F15 FX517ZM I7 12TH GEN RTX 3060" crlf
+	  "3) GIGABYTE G5 KF I5 12TH GEN RTX 4060 8GB" crlf crlf))
+:;--------------R42--------------------
+(defrule Above_400000_20
+ (ifGamingChoice 2)
+ ?retractChy <- (ifGamingChoice 1)
+ =>
+ (retract ?retractChy)
+(printout t crlf "One Laptop available:" crlf
+          "1) ASUS ZENBOOK S 13 OLED UX5304 I7 13TH GEN" crlf crlf))
+:;--------------R43--------------------
+(defrule Above_400000_21
+ (ifPurposeChoice5 2)
+ ?retractChy <- (ifPurposeChoice5 2)
+ (not (ifManufacturerChoice ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Select a Manufacturer" crlf crlf
+"1) ASUS" crlf crlf
+"2) MSI" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifManufacturerChoice (read))))
+:;--------------R44--------------------
+(defrule Above_400000_22
+ (ifManufacturerChoice 1)
+ ?retractChy <- (ifManufacturerChoice 1)
+ =>
+ (retract ?retractChy)
+(printout t crlf "Two Laptops available:" crlf
+          "1) ASUS ROG STRIX G16 2023 G614J I7 13TH GEN RTX 4060" crlf
+	  "2) ASUS TUF GAMING F15 2023 FX507VV4 I7 13TH RTX 4060" crlf crlf))
+:;--------------R45--------------------
+(defrule Above_400000_23
+ (ifManufacturerChoice 2)
+ ?retractChy <- (ifManufacturerChoice 2)
+ =>
+ (retract ?retractChy)
+(printout t crlf "Two Laptops available:" crlf
+          "1) MSI CYBORG 15 A12VF I7 12TH GEN RTX 4060 8GB" crlf
+	  "2) MSI PULSE 15 B13VFK I7 13TH GEN RTX 4060" crlf crlf))
+:;--------------R46--------------------
+(defrule Above_400000_24
+ (ifPerformanceChoice4 2)
+ ?retractChy <- (ifPerformanceChoice4 2)
+  (not (ifAffordChoice1 ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Can you afford more than Rs.600,000 ?" crlf crlf
+"1) YES" crlf crlf
+"2) NO" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifAffordChoice1 (read))))
+:;--------------R47--------------------
+(defrule Above_400000_25
+ (ifAffordChoice1 2)
+ ?retractChy <- (ifAffordChoice1 2)
+ =>
+ (retract ?retractChy)
+(printout t crlf crlf crlf "Laptops with premium performance are not available under Rs.600,000."crlf crlf ))
+:;--------------R48--------------------
+(defrule Above_400000_26
+ (ifAffordChoice1 1)
+ ?retractChy <- (ifAffordChoice1 1)
+ (not (ifPurposeChoice6 ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"What is your purpose (or area of study)?" crlf crlf
+"1) Programming (IT)" crlf crlf
+"2) Design & Palnning + Engineering" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifPurposeChoice6 (read))))
+:;--------------R49--------------------
+(defrule Above_400000_27
+ (ifPurposeChoice6 1)
+ ?retractChy <- (ifPurposeChoice6 1)
+ (not (ifProcessorChoice ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Select a Processor type" crlf crlf
+"1) Intel Core i7" crlf crlf
+"2) Intel Core i9" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifProcessorChoice (read))))
+:;--------------R50--------------------
+(defrule Above_400000_28
+ (ifProcessorChoice 1)
+ ?retractChy <- (ifProcessorChoice 1)
+ (not (ifRAMChoice1 ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Select RAM type" crlf crlf
+"1) 16GB DDR5" crlf crlf
+"2) 32GB DDR5 (16GB X 2)" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifRAMChoice1 (read))))
+:;--------------R51--------------------
+(defrule Above_400000_29
+ (ifRAMChoice1 1)
+ ?retractChy <- (ifRAMChoice1 1)
+ =>
+ (retract ?retractChy)
+(printout t crlf "One Laptop available:" crlf
+          "1) MSI KATANA GF66 12UE0K DDR5 I7 12TH GEN RTX 3060" crlf crlf))
+:;--------------R52--------------------
+(defrule Above_400000_30
+ (ifRAMChoice1 2)
+ ?retractChy <- (ifRAMChoice1 2)
+ =>
+ (retract ?retractChy)
+(printout t crlf "One Laptop available:" crlf
+          "1) MSI STEALTH 14 STUDIO A13VG I7 13TH GEN RTX 4070" crlf crlf))
+:;--------------R53--------------------
+(defrule Above_400000_31
+ (ifProcessorChoice 2)
+ ?retractChy <- (ifProcessorChoice 2)
+ (not (ifRAMChoice2 ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Select RAM type" crlf crlf
+"1) 16GB DDR5" crlf crlf
+"2) 32GB DDR5 (16GB X 2)" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifRAMChoice2 (read))))
+:;--------------R54--------------------
+(defrule Above_400000_32
+ (ifRAMChoice2 1)
+ ?retractChy <- (ifRAMChoice2 1)
+ =>
+ (retract ?retractChy)
+(printout t crlf "One Laptop available:" crlf
+          "1) MSI KATANA 15 B13VGK I9 13TH GEN RTX 4070" crlf crlf))
+:;--------------R55--------------------
+(defrule Above_400000_33
+ (ifRAMChoice2 2)
+ ?retractChy <- (ifRAMChoice2 2)
+ =>
+ (retract ?retractChy)
+(printout t crlf "One Laptop available:" crlf
+          "1) MSI PULSE 15 B13VFK I9 13TH GEN RTX 4060" crlf crlf))
+:;--------------R56--------------------
+(defrule Above_400000_34
+ (ifPurposeChoice6 2)
+ ?retractChy <- (ifPurposeChoice6 2)
+ (not (ifVGAChoice ?))
+ =>
+ (retract ?retractChy)
+ (printout t crlf crlf
+"Select a VGA type" crlf crlf
+"1) NVIDIA GeForce RTX 3070Ti 8GB GDDR6" crlf crlf
+"2) NVIDIA® GeForce RTX 4070 8GB GDDR6" crlf crlf
+" Enter your choice here (1|2): " )
+ (assert (ifVGAChoice (read))))
+:;--------------R57--------------------
+(defrule Above_400000_35
+ (ifVGAChoice 1)
+ ?retractChy <- (ifVGAChoice 1)
+ =>
+ (retract ?retractChy)
+(printout t crlf "One Laptop available:" crlf
+          "1) MSI RAIDER GE67 HX 12UGS 2K OLED I9 + RTX 3070TI" crlf crlf))
+:;--------------R58--------------------
+(defrule Above_400000_36
+ (ifVGAChoice 2)
+ ?retractChy <- (ifVGAChoice 2)
+ =>
+ (retract ?retractChy)
+(printout t crlf "One Laptop available:" crlf
+          "1) MSI STEALTH 16 MERCEDES-AMG A13V I9 13TH RTX 4070" crlf crlf))
